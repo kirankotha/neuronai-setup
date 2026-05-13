@@ -1,0 +1,47 @@
+name: My AI Setup
+version: 0.0.1
+schema: v1
+
+models:
+  - name: Gemini 2.5 Pro
+    provider: gemini
+    model: gemini-2.5-pro
+    apiKey: $GEMINI_API_KEY
+
+  - name: Gemini 2.5 Flash
+    provider: gemini
+    model: gemini-2.5-flash
+    apiKey: $GEMINI_API_KEY
+
+  - name: Groq Llama 3.3 70B
+    provider: groq
+    model: llama-3.3-70b-versatile
+    apiKey: $GROQ_API_KEY
+
+  - name: Qwen 2.5 Coder (Local VM)
+    provider: ollama
+    model: qwen2.5-coder:7b
+    apiBase: http://$VM_IP:11434
+
+  - name: DeepSeek Coder (Local VM)
+    provider: ollama
+    model: deepseek-coder:1.3b
+    apiBase: http://$VM_IP:11434
+
+tabAutocompleteModel:
+  name: Autocomplete
+  provider: ollama
+  model: deepseek-coder:1.3b
+  apiBase: http://$VM_IP:11434
+
+contextProviders:
+  - name: code
+  - name: diff
+  - name: terminal
+  - name: problems
+
+slashCommands:
+  - name: edit
+    description: Edit selected code
+  - name: test
+    description: Generate unit tests
