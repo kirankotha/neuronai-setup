@@ -108,7 +108,7 @@ else
     info "Starting Open WebUI..."
     docker run -d \
         -v open-webui:/app/backend/data \
-        -p 3000:8080 \
+        -p 127.0.0.1:3000:8080 \
         -e OLLAMA_BASE_URL=http://172.17.0.1:11434 \
         -e BYPASS_MODEL_ACCESS_CONTROL=true \
         -e WEBUI_NAME="$WEBUI_NAME" \
